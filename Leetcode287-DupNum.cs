@@ -19,7 +19,9 @@ namespace leetcode2021
         public static void Main(string[] args)
         {
             int[] nums = new int[] { 1, 3, 4, 2, 2 };
-            int b = FindDuplicate(nums);
+             Leetcode287 test = new Leetcode287();
+            int b = test.FindDuplicate(nums);
+        
             Console.WriteLine(b);
             Console.ReadKey();
 
@@ -46,13 +48,14 @@ namespace leetcode2021
         }
         public int FindDuplicate2(int[] nums)
         {
+            
             int result = nums[0];
             if (nums.Length <= 2) return nums[0];
             for (int i = 0; i < nums.Length; i++)
             {
-                if (Array.FindIndex(nums, nums[i]) != Array.FindLast(nums, nums[i]))
+                if (Array.IndexOf(nums, nums[i]) != Array.LastIndexOf(nums, nums[i]))
                 {
-                    return result;
+                    return nums[i];
                 }
             }
 
