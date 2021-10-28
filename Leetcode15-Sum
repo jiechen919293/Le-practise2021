@@ -1,0 +1,32 @@
+public class Solution {
+  public IList<IList<int>> ThreeSum(int[] nums)
+        {
+
+            IList<IList<int>> result = new List<IList<int>>();
+            if (nums.Length < 3) return result;
+            int n = nums.Length;
+            Array.Sort(nums);
+            for (int i = 0; i < n; ++i)
+            {
+                int z = n - 1;
+                if (i > 0 && nums[i] == nums[i - 1])
+                    continue;
+                for (int j = i + 1; j < n - 1; ++j)
+                {
+                    if (j > i + 1 && nums[j] == nums[j - 1])
+                        continue;
+                    while (nums[i] + nums[j] + nums[z] > 0 && j < z)
+                        z = z - 1;
+                    if (z == j)
+                        break;
+                    if (nums[i] + nums[j] + nums[z] == 0)
+
+                        result.Add(new List<int>() { nums[i], nums[j], nums[z] });
+                    if (z == j)
+                        break;
+
+                }
+            }
+            return result;
+        }
+}
