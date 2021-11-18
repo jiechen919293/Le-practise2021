@@ -1,0 +1,10 @@
+public class Solution {
+    public IList<int> FindDisappearedNumbers(int[] nums) {
+        List<int> result=new List<int> ();
+        for(var i=1;i<=nums.Length;i++)
+        {
+            if(!nums.Contains(i))result.Add(i);
+}
+        return result;
+    }
+}
